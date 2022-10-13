@@ -1,0 +1,33 @@
+<form [formGroup]="registrationForm" class="registrazione-form">
+    <mat-form-field class="registrazione-form-width">
+        <input matInput placeholder="Nome" formControlName="nome">
+    </mat-form-field>
+    <mat-form-field class="registrazione-form-width">
+        <input matInput placeholder="Cognome" formControlName="cognome">
+    </mat-form-field>
+    <mat-form-field class="registrazione-form-width">
+        <input matInput placeholder="Indirizzo" formControlName="indirizzo">
+    </mat-form-field>
+    <mat-form-field class="registrazione-form-width">
+        <input matInput placeholder="Città" formControlName="città">
+    </mat-form-field>
+    <mat-form-field class="registrazione-form-width">
+        <input type="tel" matInput placeholder="Cellulare" formControlName="cellulare">
+    </mat-form-field>
+    <mat-form-field class="registrazione-form-width">
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="registrationForm.get('email')?.hasError('email') && !registrationForm.get('email')?.hasError('required')">
+            Inserisci un email valida.
+        </mat-error>
+        <mat-error *ngIf="registrationForm.get('email')?.hasError('required')">
+            Email <strong>obbligatoria</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Inserisci password" formControlName="password" [type]="hidePassword ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+</form>
+<div class="bottone-registrati">
+    <button (click)="registraDati()" mat-raised-button color="accent">Registrati</button>
+</div>
