@@ -19,10 +19,11 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationForm = new FormGroup( {
       nome: new FormControl('', [Validators.required]),
       cognome: new FormControl('', [Validators.required]),
-      indirizzo: new FormControl('', [Validators.required]),
-      città: new FormControl('', [Validators.required]),
+      // indirizzo: new FormControl('', [Validators.required]),
+      // città: new FormControl('', [Validators.required]),
       cellulare: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
+      username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     })
   }
