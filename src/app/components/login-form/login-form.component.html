@@ -1,1 +1,25 @@
-<p>login-form works!</p>
+<form [formGroup]="loginForm" class="login-form">
+    <mat-form-field class="login-form-width">
+        <input matInput placeholder="Email" formControlName="nomeUtente">
+        <mat-error
+            *ngIf="loginForm.get('email')?.hasError('nomeUtente') && !loginForm.get('nomeUtente')?.hasError('required')">
+            Inserisci un email valida.
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('nomeUtente')?.hasError('nomeUtente')">
+            Email <strong>obbligatoria</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="login-form-width">
+        <input matInput placeholder="Inserisci password" formControlName="password"
+            [type]="hidePassword ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' :
+            'visibility'}}
+        </mat-icon>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            Password <strong>obbligatoria</strong>
+        </mat-error>
+    </mat-form-field>
+    <div class="bottone-registrati">
+        <button (click)="login()" mat-raised-button color="accent">Accedi</button>
+    </div>
+</form>

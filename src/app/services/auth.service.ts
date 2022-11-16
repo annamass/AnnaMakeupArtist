@@ -13,11 +13,11 @@ export class AuthService {
 
   }
 
-  registraUtente(registrationForm:AbstractControl){
+  registraUtente(registrationForm:any){
     return this.http.post("/php/registrati.php",registrationForm);
   }
   
-  loginUtente(loginForm:AbstractControl){
+  loginUtente(loginForm:any){
     return this.http.post("/php/login.php",loginForm);
   }
 

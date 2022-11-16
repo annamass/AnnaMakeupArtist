@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 800px;
+    height: 100vh;
+    border: 3px solid;
+    margin: 0 auto;
+    background-image: url("../../../assets/images/copertina.jpeg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.content-day {
+    padding: 0.7rem;
+    border: 0.5px solid #0000009e;
+    cursor: pointer;
+
+    .day {
+        background: #ffffff4d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 100%;
+        color: black;
+        font-weight: 800;
+    }
+}
+
+.openedDay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+}
+
+.isOpening {
+    transition: transform 3s;
+    transform-style: preserve-3d;
+}
+
+.isHidden {
+    transform: rotateY(180deg);
+}
+
+.isOpen {
+    transform: rotateY(180deg);
+}
+
+@media only screen and (max-width:600px) {
+    .container {
+        height: 1140px;
+    }
+}

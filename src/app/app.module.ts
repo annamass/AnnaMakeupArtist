@@ -14,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -27,6 +28,9 @@ import { RegistrationFormComponent } from './components/registration-form/regist
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Interceptor } from 'src/interceptor';
+import { AdventCalendarComponent } from './page/advent-calendar/advent-calendar.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { DialogComponent } from './components/calendar/dialog/dialog.component';
 
 
 @NgModule({
@@ -36,7 +40,10 @@ import { Interceptor } from 'src/interceptor';
     RegistrazioneComponent,
     LoginComponent,
     LoginFormComponent,
-    RegistrationFormComponent
+    RegistrationFormComponent,
+    AdventCalendarComponent,
+    CalendarComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +60,7 @@ import { Interceptor } from 'src/interceptor';
     MatSidenavModule,
     MatMenuModule,
     MatFormFieldModule,
+    MatDialogModule,
     MatInputModule,
     MatCheckboxModule,
     MatSelectModule,

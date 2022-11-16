@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration-form',
@@ -13,23 +14,25 @@ export class RegistrationFormComponent implements OnInit {
   registrationForm!: FormGroup;
   hidePassword: boolean = true;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.registrationForm = new FormGroup( {
       nome: new FormControl('', [Validators.required]),
       cognome: new FormControl('', [Validators.required]),
-      // indirizzo: new FormControl('', [Validators.required]),
-      // città: new FormControl('', [Validators.required]),
-      cellulare: new FormControl('', [Validators.required]),
+      telefono: new FormControl(''),
       email: new FormControl('', [Validators.required, Validators.email]),
-      username: new FormControl('', [Validators.required]),
+      nomeUtente: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     })
   }
 
   registraDati(){
     this.inviaDati.emit(this.registrationForm.value)
+  }
+
+  goToLogin(){
+    this.router.navigate(["/login"]);
   }
 
 

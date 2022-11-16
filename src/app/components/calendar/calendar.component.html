@@ -1,0 +1,10 @@
+<div class="container">
+    <ng-container *ngFor="let content of days;let i=index">
+        <div *ngIf="!content.isOpen" (click)="openDayContent(i,content)" class="content-day">
+            <div class="day">{{content.id}} </div>
+        </div>
+        <div *ngIf="content.isOpen" class="openedDay">
+            <button (click)="openDialog()" mat-raised-button color="accent">Scopri Regalo</button>
+        </div>
+    </ng-container>
+</div>
