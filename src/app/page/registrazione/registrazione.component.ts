@@ -9,18 +9,24 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegistrazioneComponent implements OnInit {
 
-  constructor(private authService: AuthService,private router:Router) { }
+  userRegistrationOk: boolean;
+  userRegistrationName: string = "";
 
-  ngOnInit(): void {
-  
+  constructor(private authService: AuthService, private router: Router) { 
+    this.userRegistrationOk = false;
   }
+
+  ngOnInit(): void {}
 
   registraUtente(registrationForm: any) {
     this.authService.registraUtente(registrationForm).subscribe({
       next: (res: any) => {
-        if(res.id === "Ok"){
-          this.router.navigate(["/advent-calendar"])
-        }
+        this.userRegistrationName = registrationForm.nome;
+        this.userRegistrationOk = true;
+        setTimeout(() => {
+          this.router.navigate(["/login"]);
+        }, 5000);
+
       },
       error: (err: any) => {
         alert(err);

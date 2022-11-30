@@ -1,0 +1,11 @@
+<div class="card" [@cardFlip]="data.state">
+    <div [ngStyle]="{'display':data.state==='flipped' ? 'none' : ''}" [ngClass]="{'front' : data.state === 'flipped'}" class="day">{{cardData.id}}</div>
+    <div (click)="cardClicked(cardData.value)" class="face back">
+        <img [src]="cardData.img">
+    </div>
+    <div class="face front">
+        <div class="text-link">
+            <a (click)="onDiscoverGift(cardData)">Invia Regalo</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+:host {
+    display: block;
+    perspective: 600px;
+}
+
+.card {
+    box-shadow: 10px 10px 43px -18px rgba(0, 0, 0, 0.75);
+    height: 14.28rem;
+    width: 15rem;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    margin: 0.5px;
+}
+
+.day {
+    position: absolute;
+    background: #8464be;
+    color: white;
+    font-weight: bold;
+    z-index: 10;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    left: 0.5rem;
+    top: 0.5rem;
+}
+
+.face {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    backface-visibility: hidden;
+
+    >img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+    }
+}
+
+.front {
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-link{
+    color:#fff;
+    background: #8464be;
+    padding: 0.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+}
+
+@media screen and (max-width:600px) {
+    .card {
+        width: calc((100vw / 4) - 0.5vw);
+        height:calc((100vw / 4) - 2vw);
+    }
+    .text-link{
+        width: 3rem;
+        text-align: center;
+    }
+}

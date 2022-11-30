@@ -6,6 +6,11 @@ import { RegistrazioneComponent } from './page/registrazione/registrazione.compo
 
 const routes: Routes = [
   {
+    path:"",
+    redirectTo:"advent-calendar",
+    pathMatch:"full"
+  },
+  {
     path:"register",
     component:RegistrazioneComponent
   },

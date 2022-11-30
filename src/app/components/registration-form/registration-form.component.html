@@ -47,6 +47,9 @@
                 Password <strong>obbligatoria</strong>
             </mat-error>
         </mat-form-field>
+        <mat-error *ngIf="formError">
+            <div class="formError">Alcuni campi contengono degli errori <br> verificali e <strong>riprova</strong></div> 
+        </mat-error>
         <div class="bottone-registrati">
             <button (click)="registraDati()" mat-raised-button color="accent">Registrati</button>
         </div>

@@ -31,6 +31,7 @@ import { Interceptor } from 'src/interceptor';
 import { AdventCalendarComponent } from './page/advent-calendar/advent-calendar.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { DialogComponent } from './components/calendar/dialog/dialog.component';
+import { CardComponent } from './components/card/card.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { DialogComponent } from './components/calendar/dialog/dialog.component';
     RegistrationFormComponent,
     AdventCalendarComponent,
     CalendarComponent,
-    DialogComponent
+    DialogComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

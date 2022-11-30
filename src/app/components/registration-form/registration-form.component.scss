@@ -8,6 +8,7 @@
 
     .registrazione-form-width {
         width: 100%;
+        margin-bottom: 0.5rem;
     }
 
     .bottone-registrati{
@@ -15,4 +16,7 @@
     }
     .bottone-login{
         padding: 2rem 0;
+    }
+    .formError{
+        margin: 1rem 0;
     }

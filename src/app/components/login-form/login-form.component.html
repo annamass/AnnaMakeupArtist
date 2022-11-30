@@ -1,15 +1,15 @@
 <form [formGroup]="loginForm" class="login-form">
-    <mat-form-field class="login-form-width">
-        <input matInput placeholder="Email" formControlName="nomeUtente">
+    <mat-form-field class="login-form-width email">
+        <input matInput placeholder="Inserisci mail" formControlName="nomeUtente">
         <mat-error
-            *ngIf="loginForm.get('email')?.hasError('nomeUtente') && !loginForm.get('nomeUtente')?.hasError('required')">
+            *ngIf="loginForm.get('nomeUtente')?.hasError('email') && !loginForm.get('nomeUtente')?.hasError('required')">
             Inserisci un email valida.
         </mat-error>
-        <mat-error *ngIf="loginForm.get('nomeUtente')?.hasError('nomeUtente')">
+        <mat-error *ngIf="loginForm.get('nomeUtente')?.hasError('required')">
             Email <strong>obbligatoria</strong>
         </mat-error>
     </mat-form-field>
-    <mat-form-field class="login-form-width">
+    <mat-form-field class="login-form-width password">
         <input matInput placeholder="Inserisci password" formControlName="password"
             [type]="hidePassword ? 'password' : 'text'">
         <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' :
@@ -19,7 +19,14 @@
             Password <strong>obbligatoria</strong>
         </mat-error>
     </mat-form-field>
+    <mat-error *ngIf="formError">
+       <div class="formError">Email o Password <strong>errate</strong></div> 
+    </mat-error>
     <div class="bottone-registrati">
         <button (click)="login()" mat-raised-button color="accent">Accedi</button>
+    </div>
+    <div class="or">oppure</div>
+    <div class="bottone-registrati">
+        <button (click)="goToRegister()" mat-raised-button color="primary">Registrati</button>
     </div>
 </form>

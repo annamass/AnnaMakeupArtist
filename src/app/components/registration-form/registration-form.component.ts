@@ -13,11 +13,12 @@ export class RegistrationFormComponent implements OnInit {
 
   registrationForm!: FormGroup;
   hidePassword: boolean = true;
+  formError: boolean = false;
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.registrationForm = new FormGroup( {
+    this.registrationForm = new FormGroup({
       nome: new FormControl('', [Validators.required]),
       cognome: new FormControl('', [Validators.required]),
       telefono: new FormControl(''),
@@ -27,11 +28,18 @@ export class RegistrationFormComponent implements OnInit {
     })
   }
 
-  registraDati(){
-    this.inviaDati.emit(this.registrationForm.value)
+  registraDati() {
+    if (this.registrationForm.status === "VALID") {
+      this.inviaDati.emit(this.registrationForm.value)
+    } else {
+      this.formError = true;
+      setTimeout(() => {
+        this.formError = false;
+      }, 5000);
+    }
   }
 
-  goToLogin(){
+  goToLogin() {
     this.router.navigate(["/login"]);
   }
 
