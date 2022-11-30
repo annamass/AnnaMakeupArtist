@@ -1,0 +1,18 @@
+.welcome-image {
+    position: relative;
+
+    .goToCalendar {
+        background: #8464be;
+        text-decoration: none;
+        font-size: 1rem;
+        color: #ffff;
+        position: absolute;
+        bottom: 10rem;
+        left: 5rem;
+        padding: 1rem;
+        width: 10rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

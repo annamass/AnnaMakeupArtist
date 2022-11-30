@@ -32,6 +32,7 @@ import { AdventCalendarComponent } from './page/advent-calendar/advent-calendar.
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { DialogComponent } from './components/calendar/dialog/dialog.component';
 import { CardComponent } from './components/card/card.component';
+import { WelcomeUserComponent } from './page/welcome-user/welcome-user.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { CardComponent } from './components/card/card.component';
     AdventCalendarComponent,
     CalendarComponent,
     DialogComponent,
-    CardComponent
+    CardComponent,
+    WelcomeUserComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdventCalendarComponent } from './page/advent-calendar/advent-calendar.component';
 import { LoginComponent } from './page/login/login.component';
 import { RegistrazioneComponent } from './page/registrazione/registrazione.component';
+import { WelcomeUserComponent } from './page/welcome-user/welcome-user.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: "advent-calendar",
     component: AdventCalendarComponent
+  },
+  {
+    path: "welcome-user",
+    component: WelcomeUserComponent
   }
 ];
 

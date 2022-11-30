@@ -37,7 +37,8 @@ export class CalendarComponent implements OnInit {
       id: "6",
       img:"../../assets/images/foto_4.jpeg",
       isOpen: false,
-      value: "2022-12-06"
+      value: "2022-12-06",
+      pdf:"PRODOTTI_LOWCOST.pdf"
     },
     {
       id: "10",
@@ -91,7 +92,8 @@ export class CalendarComponent implements OnInit {
       id: "20",
       img:"../../assets/images/foto_13.jpeg",
       isOpen: false,
-      value: "2022-12-20"
+      value: "2022-12-20",
+      pdf:"TRATTAMENTI_ESTETICI.pdf"
     },
     {
       id: "19",
@@ -173,9 +175,8 @@ export class CalendarComponent implements OnInit {
   }
 
   setTodayDate() {
-    // let today = new Date().toJSON();
-    // this.todayDate = today.split("T")[0];
-    this.todayDate = "2022-12-03";
+    let today = new Date().toJSON();
+    this.todayDate = today.split("T")[0];
   }
 
   openDayContent(index:number,dayContent: { id: string, value: string, isOpen: boolean }) {

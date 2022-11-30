@@ -32,7 +32,7 @@
             </mat-error>
         </mat-form-field>
         <mat-form-field class="registrazione-form-width">
-            <input type="tel" matInput placeholder="Username" formControlName="nomeUtente">
+            <input matInput placeholder="Username" formControlName="nomeUtente">
             <mat-error *ngIf="registrationForm.get('nomeUtente')?.hasError('required')">
                 Nome utente <strong>obbligatorio</strong>
             </mat-error>

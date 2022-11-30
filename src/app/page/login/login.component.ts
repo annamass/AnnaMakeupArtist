@@ -9,22 +9,36 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService,private router:Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  Accedi(formData:{email:string,password:string}){
+  Accedi(formData: { email: string, password: string }) {
     this.authService.loginUtente(formData).subscribe({
-      next : (res:any) => {
-        localStorage.setItem("jwt",res.jwt);
-        localStorage.setItem("expJwt",res.expJwt);
-        this.router.navigate(["/advent-calendar"]);
+      next: (res: any) => {
+        if (localStorage.getItem("isFirstAccess")) {
+          localStorage.setItem("isFirstAccess", "false");
+        } else {
+          localStorage.setItem("isFirstAccess", "true");
+        }
+        localStorage.setItem("jwt", res.jwt);
+        localStorage.setItem("expJwt", res.expJwt);
+        this.goToCalendar();
       },
-      error : (err:any) => {
-        
+      error: (err: any) => {
+
       }
     })
+  }
+
+  goToCalendar() {
+    let isFirstAccess = localStorage.getItem("isFirstAccess");
+    if (isFirstAccess === "true") {
+      this.router.navigate(["/welcome-user"]);
+    } else {
+      this.router.navigate(["/advent-calendar"]);
+    }
   }
 
 }
